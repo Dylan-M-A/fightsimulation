@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace fightsimulation
 {
+    //creating the monsters structures
     struct Monster
     {
         public string name;
@@ -31,6 +32,7 @@ namespace fightsimulation
         Monster _monster1;
         Monster _monster2;
         Monster _monster3;
+        //creating the actul monsters and printing stats
         void Start()
         {
             //monster 1
@@ -88,11 +90,12 @@ namespace fightsimulation
 
             _gameOver = true;
         }
-
+        //end of the game
         void End()
         {
             Console.ReadKey();
         }
+        //how the game is going to run
         public void Run()
         {
             Start();
@@ -105,14 +108,14 @@ namespace fightsimulation
             End();
 
         }
-
+        //giving monsters the ability to fight
         float Fight(Monster attacker, ref Monster defender)
         {
             float damageTaken = CalculateDamage(attacker.attack, defender.defense);
             defender.health -= damageTaken;
             return damageTaken;
         }
-
+        //calcuates the amount of damage each monster does to each other
         float CalculateDamage(float attack, float defense)
         {
             float damage = attack - defense;
@@ -125,7 +128,7 @@ namespace fightsimulation
 
             return damage;
         }
-
+        //gives the monsters there stat line
         void PrintStats(Monster monster)
         {
             Console.WriteLine("Name:    " + monster.name);
